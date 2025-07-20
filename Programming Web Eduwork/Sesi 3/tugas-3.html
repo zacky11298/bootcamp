@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Biodata (Responsive)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Removed container for edge-to-edge layout -->
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light rounded shadow mb-4 sticky-top" style="border: 1.5px solid #eaf2fb;">
+            <div class="container-fluid">
+            <a class="navbar-brand fw-bold mx-5" href="#header">Zacky Fajar Alam</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#header">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#biodata">Biodata</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portofolio">Portofolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+        <!-- Hero Section -->
+        <section class="row align-items-center mb-5 mx-5" id="header">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h1 class="display-5 fw-bold mb-3">Selamat Datang di Website Saya</h1>
+                <p class="lead">Saya adalah seorang <em>Electrical Engineering</em> yang besemengat dalam bidang <em>Web Developer</em></p>
+                <button type="button" class="btn btn-primary btn-lg mt-2 shadow" data-bs-toggle="modal" data-bs-target="#liveDemoModal">Pelajari Lebih Lanjut</button>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="https://web.rupa.ai/wp-content/uploads/2023/08/aruna3619_An_example_of_good_and_profesional_Linkedin_profile_p_58ae7501-acef-4839-8f84-a86368b3deef.png" alt="Header Image" class="img-fluid rounded shadow">
+            </div>
+        </section>
+
+        <!-- Live Demo Modal -->
+        <div class="modal fade" id="liveDemoModal" tabindex="-1" aria-labelledby="liveDemoModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="liveDemoModalLabel">Live Demo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                <p>Ini adalah contoh tampilan live demo dari website portfolio Anda.</p>
+                <p class="mb-0">Website ini dibuat dengan Bootstrap 5 dan desain modern yang responsif.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Biodata Section -->
+        <section id="biodata" class="mb-5 mx-5">
+            <h2 class="text-center mb-4">Biodata</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <span class="bi bi-person-circle" style="font-size:2rem;"></span>
+                            <strong class="d-block mb-2 mt-2">Nama Lengkap</strong>
+                            <p class="mb-0">Zacky Fajar Alam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <span class="bi bi-mortarboard" style="font-size:2rem;"></span>
+                            <strong class="d-block mb-2 mt-2">Pendidikan</strong>
+                            <p class="mb-0">S1 Teknik Elektro</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <span class="bi bi-briefcase" style="font-size:2rem;"></span>
+                            <strong class="d-block mb-2 mt-2">Pekerjaan</strong>
+                            <p class="mb-0">Mahasiswa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <span class="bi bi-envelope-at" style="font-size:2rem;"></span>
+                            <strong class="d-block mb-2 mt-2">Kontak</strong>
+                            <p class="mb-0">zackyfajar.alam@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <span class="bi bi-bicycle" style="font-size:2rem;"></span>
+                            <strong class="d-block mb-2 mt-2">Hobi</strong>
+                            <p class="mb-0">Sport</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <span class="bi bi-geo-alt" style="font-size:2rem;"></span>
+                            <strong class="d-block mb-2 mt-2">Alamat</strong>
+                            <p class="mb-0">Padang</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portofolio" class="mb-5 mx-5">
+                <h2 class="text-center mb-4">Portofolio</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://cdn-web.ruangguru.com/landing-pages/assets/hs/BA%20Pojok%20Kampus%20-%20Teknik%20Elektro-05.jpg" alt="Project 1 Image" class="card-img-top img-fluid">
+                            <div class="card-body text-center">
+                                <strong>Proyek 1</strong><br>
+                                <span class="text-muted">Deskripsi proyek 1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://static.republika.co.id/uploads/images/inpicture_slide/teknik-elektro-adalah-ilmu-yang-mempelajari-tentang-listrik-dan_220505091848-261.jpg" alt="Project 2 Image" class="card-img-top img-fluid">
+                            <div class="card-body text-center">
+                                <strong>Proyek 2</strong><br>
+                                <span class="text-muted">Deskripsi proyek 2</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://png.pngtree.com/png-vector/20230801/ourlarge/pngtree-electrical-engineering-clipart-electrician-with-machines-and-tools-cartoon-vector-png-image_6863967.png" alt="Project 3 Image" class="card-img-top img-fluid">
+                            <div class="card-body text-center">
+                                <strong>Proyek 3</strong><br>
+                                <span class="text-muted">Deskripsi proyek 3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Contact Section -->
+        <section id="kontak" class="mb-5 mx-5">
+                <h2 class="text-center mb-4">Kontak</h2>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <form class="p-4 bg-light rounded shadow-sm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nama:</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Pesan:</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Kirim</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-6 d-flex align-items-center">
+                        <div class="bg-white p-4 rounded shadow-sm w-100">
+                            <p class="mb-2"><span class="bi bi-envelope-at me-2"></span><strong>Email:</strong> zackyfajar.alam@gmail.com</p>
+                            <p class="mb-2"><span class="bi bi-geo-alt me-2"></span><strong>Alamat:</strong> Padang</p>
+                            <p class="mb-0"><span class="bi bi-telephone me-2"></span><strong>Telepon:</strong> 0812-3456-7890</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Footer Section -->
+        <footer class="footer text-center py-3 rounded mt-4 mx-5">
+            <p class="mb-0">&copy; 2024 Zacky Fajar Alam. All rights reserved.</p>
+        </footer>
+    <!-- End of main content, no container -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
