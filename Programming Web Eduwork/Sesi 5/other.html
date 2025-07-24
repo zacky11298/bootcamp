@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etalase Produk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .product-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card .card-body {
+            flex-grow: 1;
+        }
+        .product-card img {
+            max-height: 200px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Etalase Produk Kami</h1>
+
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <input type="text" id="searchInput" class="form-control" placeholder="Cari produk...">
+            </div>
+            <div class="col-md-4">
+                <select id="categoryFilter" class="form-select">
+                    <option value="all">Semua Kategori</option>
+                    </select>
+            </div>
+            <div class="col-md-4">
+                <select id="priceSort" class="form-select">
+                    <option value="default">Urutkan Harga</option>
+                    <option value="lowToHigh">Harga: Rendah ke Tinggi</option>
+                    <option value="highToLow">Harga: Tinggi ke Rendah</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="productContainer">
+            </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "Laptop Gaming Terbaru",
+                description: "Laptop bertenaga tinggi untuk pengalaman gaming tak tertandingi dengan kartu grafis RTX 4080.",
+                price: 25000000,
+                image: "https://via.placeholder.com/400x300/FF5733/FFFFFF?text=Laptop+Gaming",
+                category: "Elektronik"
+            },
+            {
+                id: 2,
+                name: "Smartphone Flagship",
+                description: "Smartphone dengan kamera mutakhir dan performa super cepat. Dilengkapi prosesor terbaru.",
+                price: 12000000,
+                image: "https://via.placeholder.com/400x300/33FF57/FFFFFF?text=Smartphone",
+                category: "Elektronik"
+            },
+            {
+                id: 3,
+                name: "Smart TV 4K 65 Inci",
+                description: "Nikmati hiburan maksimal dengan Smart TV 4K berukuran besar dan fitur pintar lengkap.",
+                price: 9500000,
+                image: "https://via.placeholder.com/400x300/5733FF/FFFFFF?text=Smart+TV",
+                category: "Elektronik"
+            },
+            {
+                id: 4,
+                name: "Sepatu Lari Profesional",
+                description: "Sepatu lari ringan dan nyaman, didesain untuk performa maksimal. Sol responsif dan bahan breathable.",
+                price: 1500000,
+                image: "https://via.placeholder.com/400x300/FF33A1/FFFFFF?text=Sepatu+Lari",
+                category: "Pakaian & Aksesoris"
+            },
+            {
+                id: 5,
+                name: "Kemeja Katun Pria",
+                description: "Kemeja kasual dari bahan katun berkualitas tinggi, cocok untuk gaya sehari-hari.",
+                price: 350000,
+                image: "https://via.placeholder.com/400x300/33A1FF/FFFFFF?text=Kemeja+Pria",
+                category: "Pakaian & Aksesoris"
+            },
+            {
+                id: 6,
+                name: "Celana Jeans Slim Fit Wanita",
+                description: "Celana jeans modern dengan potongan slim fit yang stylish dan nyaman dipakai.",
+                price: 480000,
+                image: "https://via.placeholder.com/400x300/A1FF33/FFFFFF?text=Celana+Jeans",
+                category: "Pakaian & Aksesoris"
+            },
+            {
+                id: 7,
+                name: "Buku Fiksi Fantasi",
+                description: "Novel fantasi epik dengan petualangan seru dan dunia yang imajinatif.",
+                price: 120000,
+                image: "https://via.placeholder.com/400x300/FFB333/FFFFFF?text=Buku+Fantasi",
+                category: "Buku & Media"
+            },
+            {
+                id: 8,
+                name: "Set Peralatan Masak Premium",
+                description: "Set lengkap peralatan masak anti lengket dengan desain elegan dan tahan lama.",
+                price: 1800000,
+                image: "https://via.placeholder.com/400x300/33FFB3/FFFFFF?text=Peralatan+Masak",
+                category: "Peralatan Rumah Tangga"
+            },
+            {
+                id: 9,
+                name: "Meja Kerja Minimalis",
+                description: "Meja kerja dengan desain minimalis dan fungsional, ideal untuk ruang kecil.",
+                price: 750000,
+                image: "https://via.placeholder.com/400x300/B333FF/FFFFFF?text=Meja+Kerja",
+                category: "Furnitur"
+            },
+            {
+                id: 10,
+                name: "Headphone Nirkabel Noise Cancelling",
+                description: "Headphone dengan kualitas suara superior dan teknologi peredam bising aktif.",
+                price: 2100000,
+                image: "https://via.placeholder.com/400x300/FF3357/FFFFFF?text=Headphone",
+                category: "Elektronik"
+            }
+        ];
+
+        const productContainer = document.getElementById('productContainer');
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const priceSort = document.getElementById('priceSort');
+
+        let filteredProducts = [...products]; // Salinan produk untuk filter
+
+        // Fungsi untuk menampilkan produk
+        function displayProducts(productsToDisplay) {
+            productContainer.innerHTML = ''; // Kosongkan kontainer produk
+            if (productsToDisplay.length === 0) {
+                productContainer.innerHTML = '<div class="col-12 text-center py-5"><p class="lead">Tidak ada produk ditemukan.</p></div>';
+                return;
+            }
+
+            productsToDisplay.forEach(product => {
+                const productCard = `
+                    <div class="col">
+                        <div class="card product-card shadow-sm">
+                            <img src="${product.image}" class="card-img-top p-3" alt="${product.name}">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">${product.name}</h5>
+                                <p class="card-text text-muted mb-1">${product.category}</p>
+                                <p class="card-text">${product.description.substring(0, 100)}...</p>
+                                <h4 class="mt-auto mb-2">Rp${product.price.toLocaleString('id-ID')}</h4>
+                                <a href="#" class="btn btn-primary mt-2">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productContainer.innerHTML += productCard;
+            });
+        }
+
+        // Fungsi untuk mengisi filter kategori secara dinamis
+        function populateCategories() {
+            const categories = [...new Set(products.map(product => product.category))]; // Ambil kategori unik
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categoryFilter.appendChild(option);
+            });
+        }
+
+        // Fungsi untuk melakukan filter dan sorting
+        function applyFiltersAndSort() {
+            let tempProducts = [...products];
+
+            // 1. Filter berdasarkan pencarian nama
+            const searchTerm = searchInput.value.toLowerCase();
+            if (searchTerm) {
+                tempProducts = tempProducts.filter(product =>
+                    product.name.toLowerCase().includes(searchTerm)
+                );
+            }
+
+            // 2. Filter berdasarkan kategori
+            const selectedCategory = categoryFilter.value;
+            if (selectedCategory !== 'all') {
+                tempProducts = tempProducts.filter(product =>
+                    product.category === selectedCategory
+                );
+            }
+
+            // 3. Sorting berdasarkan harga
+            const sortOrder = priceSort.value;
+            if (sortOrder === 'lowToHigh') {
+                tempProducts.sort((a, b) => a.price - b.price);
+            } else if (sortOrder === 'highToLow') {
+                tempProducts.sort((a, b) => b.price - a.price);
+            }
+
+            filteredProducts = tempProducts;
+            displayProducts(filteredProducts);
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('input', applyFiltersAndSort);
+        categoryFilter.addEventListener('change', applyFiltersAndSort);
+        priceSort.addEventListener('change', applyFiltersAndSort);
+
+        // Inisialisasi: Tampilkan semua produk saat halaman pertama kali dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            populateCategories();
+            displayProducts(products);
+        });
+
+    </script>
+</body>
+</html>
